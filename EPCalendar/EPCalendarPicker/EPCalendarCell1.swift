@@ -18,19 +18,19 @@ class EPCalendarCell1: UICollectionViewCell {
         super.awakeFromNib()
     }
 
-    func selectedForLabelColor(_ color: UIColor) {
+    func selectedForLabelColor(color: UIColor) {
         self.lblDay.layer.cornerRadius = self.lblDay.frame.size.width/2
         self.lblDay.layer.backgroundColor = color.cgColor
         self.lblDay.textColor = UIColor.white
     }
     
-    func deSelectedForLabelColor(_ color: UIColor) {
+    func deSelectedForLabelColor(color: UIColor) {
         self.lblDay.layer.backgroundColor = UIColor.clear.cgColor
         self.lblDay.textColor = color
     }
     
     
-    func setTodayCellColor(_ backgroundColor: UIColor) {
+    func setTodayCellColor(backgroundColor: UIColor) {
         
         self.lblDay.layer.cornerRadius = self.lblDay.frame.size.width/2
         self.lblDay.layer.backgroundColor = backgroundColor.cgColor

@@ -64,17 +64,17 @@ extension Date {
         dateComponent.year = year
         dateComponent.month = month
         dateComponent.day = day
-        (self as NSDate).init(timeInterval:0, since:calendar.date(from: dateComponent)!)
+        self.init(timeInterval: 0, since: calendar.date(from: dateComponent as DateComponents)!)
     }
     
-    func dateByAddingMonths(_ months : Int ) -> Date {
+    func dateByAddingMonths(months : Int ) -> Date {
         let calendar = Calendar.current
         var dateComponent = DateComponents()
         dateComponent.month = months
         return (calendar as NSCalendar).date(byAdding: dateComponent, to: self, options: NSCalendar.Options.matchNextTime)!
     }
     
-    func dateByAddingDays(_ days : Int ) -> Date {
+    func dateByAddingDays(days : Int ) -> Date {
         let calendar = Calendar.current
         var dateComponent = DateComponents()
         dateComponent.day = days
@@ -192,14 +192,14 @@ extension Date {
     }
 }
 
-func ==(lhs: Date, rhs: Date) -> Bool {
-    return lhs.compare(rhs) == ComparisonResult.orderedSame
+func ==(lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.compare(rhs as Date) == ComparisonResult.orderedSame
 }
 
-func <(lhs: Date, rhs: Date) -> Bool {
-    return lhs.compare(rhs) == ComparisonResult.orderedAscending
+func <(lhs: NSDate, rhs: NSDate) -> Bool {
+    return lhs.compare(rhs as Date) == ComparisonResult.orderedAscending
 }
 
-func >(lhs: Date, rhs: Date) -> Bool {
-    return rhs.compare(lhs) == ComparisonResult.orderedAscending
+func >(lhs: NSDate, rhs: NSDate) -> Bool {
+    return rhs.compare(lhs as Date) == ComparisonResult.orderedAscending
 }
